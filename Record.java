@@ -1,3 +1,4 @@
+// Record.java (Abstract Class)
 public abstract class Record {
     protected int id;
     protected String name;
