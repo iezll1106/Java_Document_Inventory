@@ -1,6 +1,6 @@
 # Overview Java_Document_Inventory
 
-In this Module03 I did choose Java Programming. This is a console-based Java program that allows users to track and manage documents created from 2010 to the present. It includes fields like document name, type, date created, originating office, and image path. The user can add, list, filter, or delete records.
+In this Module03 I did choose Java Programming. This is a console-based Java program that allows users to users to manage document records including ID, name, kind, date created, office, and image path (for scanned copies). The user can add, list, filter, or delete records.
 
 The purpose of creating this software is to demonstrate basic skills in Java Programming like it's installation (Java and its packages).
 
