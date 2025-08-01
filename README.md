@@ -22,10 +22,11 @@ To run: java YourClassName
 
 Make a list of websites that you found helpful in this project
 
-* W3school R Tutorial https://www.w3schools.com/r/r_intro.asp
-1 
+* W3school Java Programming Tutorial https://www.w3schools.com/java/java_intro.asp
+
+* Youtube Java Programming Tutorial https://www.youtube.com/playlist?list=PLP9IO4UYNF0VT3LvP_Cl4EIEyVk-Q5DP3 
 
 # Future Work
 
 Make a list of things that you need to fix, improve, and add in the future.
-- Combine all summaries and plots into an R Markdown report
+- Combine 
