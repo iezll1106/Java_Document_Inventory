@@ -1,8 +1,11 @@
 # Overview Java_Document_Inventory
 
-In this Module03 I did choose Java Programming. This software will analyze employee salary data for the PGG office. It will load data from a csv file, process and explore salaries, generate statistics, and visualize trends such as salary distribution by designation and gender. The script will use multiple R features such as dataframes, loops, lists, and control structures like case_when. Output will be printed to the console and optionally visualized using charts.
+In this Module03 I did choose Java Programming. This is a console-based Java program that allows users to track and manage documents created from 2010 to the present. It includes fields like document name, type, date created, originating office, and image path. The user can add, list, filter, or delete records.
 
-The purpose of creating this software is to demonstrate basic skills in R Programming like it's installation (R and its packages), data manipulation, and visualization. The software will be used to analyze and visualize simple employee data, providing insights into salary distributions and trends.
+The purpose of creating this software is to demonstrate basic skills in Java Programming like it's installation (Java and its packages).
+
+To compile: type javac YourClassName
+To run: java YourClassName
 
 # Development Environment
 
