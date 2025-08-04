@@ -28,5 +28,4 @@ Make a list of websites that you found helpful in this project
 
 # Future Work
 
-Make a list of things that you need to fix, improve, and add in the future.
-- Combine 
+- Convert it to GUI using JavaFX or Swing
