@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+import javax.swing.*;
 
 public class Main {
     static ArrayList<Document> documents = new ArrayList<>();
@@ -17,6 +18,7 @@ public class Main {
             System.out.println("4. Load from File");
             System.out.println("5. Edit Document");
             System.out.println("6. Delete Document");
+            System.out.println("7. Test Image Path");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -29,6 +31,7 @@ public class Main {
                 case 4 -> loadFromFile(FILE_NAME);
                 case 5 -> editDocument();
                 case 6 -> deleteDocument();
+                case 7 -> testImagePath();
                 case 0 -> System.out.println("Exiting...");
                 default -> System.out.println("Invalid choice.");
             }
@@ -177,5 +180,28 @@ public class Main {
             }
         }
         System.out.println("Document not found.");
+    }
+
+    static void testImagePath() {
+        System.out.print("Enter image path to test: ");
+        String path = scanner.nextLine();
+        File imageFile = new File(path);
+        if (!imageFile.exists()) {
+            System.out.println("File does not exist.");
+            return;
+        }
+        try {
+            JFrame frame = new JFrame("Image Preview");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setSize(500, 500);
+            ImageIcon imageIcon = new ImageIcon(path);
+            JLabel imageLabel = new JLabel(imageIcon);
+            JScrollPane scrollPane = new JScrollPane(imageLabel);
+            frame.add(scrollPane);
+            frame.setVisible(true);
+            System.out.println("Image loaded successfully.");
+        } catch (Exception e) {
+            System.out.println("Failed to load image: " + e.getMessage());
+        }
     }
 }
