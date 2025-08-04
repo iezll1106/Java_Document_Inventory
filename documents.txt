@@ -1,2 +1,2 @@
-1,Outgoing Communication,Letter fro Governor's Office,2025-01-15,Governor's Office,
-2,Incoming communication from PSWDO,Letter of Request,2025-02-18,PSWDO,
+1,Outgoing Communication,Letter,2025-01-10,Admin,/images/Outgoing_Letter.png
+2,Outgoing Communication,Letter of Request,2025-05-14,PSWDO,images/Outgoing_Letter.png

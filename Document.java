@@ -1,8 +1,6 @@
-// Document.java (Concrete Class)
-import java.io.FileWriter;
-import java.io.IOException;
-
-public class Document extends Record implements Storable {
+public class Document {
+    private int id;
+    private String name;
     private String kind;
     private String dateCreated;
     private String office;
@@ -30,17 +28,8 @@ public class Document extends Record implements Storable {
     public void setOffice(String office) { this.office = office; }
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }
 
-    @Override
     public void displayInfo() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Kind: " + kind + ", Date: " + dateCreated + ", Office: " + office + ", Image: " + imagePath);
-    }
-
-    @Override
-    public void saveToFile(String filename) {
-        try (FileWriter writer = new FileWriter(filename, true)) {
-            writer.write(id + "," + name + "," + kind + "," + dateCreated + "," + office + "," + imagePath + "\n");
-        } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
-        }
+        System.out.println("ID: " + id + ", Name: " + name + ", Kind: " + kind +
+                ", Date: " + dateCreated + ", Office: " + office + ", Image: " + imagePath);
     }
 }

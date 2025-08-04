@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
     static ArrayList<Document> documents = new ArrayList<>();
@@ -26,14 +23,14 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-                case 1: addDocument(); break;
-                case 2: loadFromFile(FILE_NAME); viewDocuments(); break;
-                case 3: saveAll(FILE_NAME); break;
-                case 4: loadFromFile(FILE_NAME); break;
-                case 5: editDocument(); break;
-                case 6: deleteDocument(); break;
-                case 0: System.out.println("Exiting..."); break;
-                default: System.out.println("Invalid choice.");
+                case 1 -> addDocument();
+                case 2 -> viewDocuments();
+                case 3 -> saveAll(FILE_NAME);
+                case 4 -> loadFromFile(FILE_NAME);
+                case 5 -> editDocument();
+                case 6 -> deleteDocument();
+                case 0 -> System.out.println("Exiting...");
+                default -> System.out.println("Invalid choice.");
             }
         } while (choice != 0);
     }
@@ -61,24 +58,60 @@ public class Main {
     static void viewDocuments() {
         if (documents.isEmpty()) {
             System.out.println("No documents to display.");
-        } else {
-            for (Document doc : documents) {
-                doc.displayInfo();
+            return;
+        }
+
+        System.out.println("\nVIEW DOCUMENTS");
+        System.out.println("1. View All");
+        System.out.println("2. Filter by Office");
+        System.out.println("3. Filter by Date Created (YYYY-MM-DD)");
+        System.out.print("Enter your choice: ");
+        int filterChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (filterChoice) {
+            case 1 -> {
+                for (Document doc : documents) {
+                    doc.displayInfo();
+                }
             }
+            case 2 -> {
+                System.out.print("Enter office to filter by: ");
+                String officeFilter = scanner.nextLine();
+                boolean found = false;
+                for (Document doc : documents) {
+                    if (doc.getOffice().equalsIgnoreCase(officeFilter)) {
+                        doc.displayInfo();
+                        found = true;
+                    }
+                }
+                if (!found) System.out.println("No documents found for office: " + officeFilter);
+            }
+            case 3 -> {
+                System.out.print("Enter date (YYYY-MM-DD) to filter by: ");
+                String dateFilter = scanner.nextLine();
+                boolean found = false;
+                for (Document doc : documents) {
+                    if (doc.getDateCreated().equals(dateFilter)) {
+                        doc.displayInfo();
+                        found = true;
+                    }
+                }
+                if (!found) System.out.println("No documents found for date: " + dateFilter);
+            }
+            default -> System.out.println("Invalid choice.");
         }
     }
 
     static void saveAll(String filename) {
         try (FileWriter writer = new FileWriter(filename)) {
             for (Document doc : documents) {
-                writer.write(
-                    doc.getId() + "," +
-                    doc.getName() + "," +
-                    doc.getKind() + "," +
-                    doc.getDateCreated() + "," +
-                    doc.getOffice() + "," +
-                    doc.getImagePath() + "\n"
-                );
+                writer.write(doc.getId() + "," +
+                             doc.getName() + "," +
+                             doc.getKind() + "," +
+                             doc.getDateCreated() + "," +
+                             doc.getOffice() + "," +
+                             doc.getImagePath() + "\n");
             }
             System.out.println("Documents saved to file.");
         } catch (IOException e) {
@@ -87,13 +120,19 @@ public class Main {
     }
 
     static void loadFromFile(String filename) {
-        try (Scanner fileScanner = new Scanner(new File(filename))) {
+        File file = new File(filename);
+        if (!file.exists()) {
+            System.out.println("File does not exist yet.");
+            return;
+        }
+        try (Scanner fileScanner = new Scanner(file)) {
             documents.clear();
             while (fileScanner.hasNextLine()) {
-                String[] parts = fileScanner.nextLine().split(",");
+                String[] parts = fileScanner.nextLine().split(",", -1);
                 if (parts.length == 6) {
                     Document doc = new Document(
-                        Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], parts[5]);
+                            Integer.parseInt(parts[0]),
+                            parts[1], parts[2], parts[3], parts[4], parts[5]);
                     documents.add(doc);
                 }
             }
