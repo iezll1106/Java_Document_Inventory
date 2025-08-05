@@ -20,8 +20,6 @@ To run: java YourClassName
 
 # Useful Websites
 
-Make a list of websites that you found helpful in this project
-
 * W3school Java Programming Tutorial https://www.w3schools.com/java/java_intro.asp
 
 * Youtube Java Programming Tutorial https://www.youtube.com/playlist?list=PLP9IO4UYNF0VT3LvP_Cl4EIEyVk-Q5DP3 
