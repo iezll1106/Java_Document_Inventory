@@ -1,8 +1,8 @@
 # Overview Java_Document_Inventory
 
-In this Module03 I did choose Java Programming. This is a console-based Java program that allows users to users to manage document records including ID, name, kind, date created, office, and image path (for scanned copies). The user can add, list, filter, or delete records.
+In Module 03, I chose to work with Java programming. I developed a console-based Java application that allows users to manage document records, including details such as ID, name, type, date created, office, and image path (for scanned copies). The system supports core functionalities like adding, listing, filtering, editing, and deleting records.
 
-The purpose of creating this software is to demonstrate basic skills in Java Programming like it's installation (Java and its packages).
+The purpose of creating this software was to demonstrate my foundational skills in Java programming—ranging from setting up the development environment (JDK and relevant packages) to writing structured, functional code for a real-world application scenario.
 
 To compile: javac YourClassName
 To run: java YourClassName
