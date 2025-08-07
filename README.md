@@ -22,6 +22,8 @@ To run: java YourClassName
 
 * W3school Java Programming Tutorial https://www.w3schools.com/java/java_intro.asp
 
+* Java Programming TuTorials Point https://www.tutorialspoint.com/java/index.htm
+
 * Youtube Java Programming Tutorial https://www.youtube.com/playlist?list=PLP9IO4UYNF0VT3LvP_Cl4EIEyVk-Q5DP3 
 
 # Future Work
