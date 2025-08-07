@@ -4,7 +4,7 @@ In this Module03 I did choose Java Programming. This is a console-based Java pro
 
 The purpose of creating this software is to demonstrate basic skills in Java Programming like it's installation (Java and its packages).
 
-To compile: type javac YourClassName
+To compile: javac YourClassName
 To run: java YourClassName
 
 # Development Environment
