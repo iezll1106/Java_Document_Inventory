@@ -28,4 +28,4 @@ To run: java YourClassName
 
 # Future Work
 
-- Convert it to GUI using JavaFX or Swing
+- Convert it to GUI using JavaFX
