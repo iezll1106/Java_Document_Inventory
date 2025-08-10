@@ -1,13 +1,20 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.*;
 import javax.swing.*;
 
 public class Main {
+    // Stores all document records
     static ArrayList<Document> documents = new ArrayList<>();
+    // Scanner for user input
     static Scanner scanner = new Scanner(System.in);
+    // Default filename for saving/loading records
     static final String FILE_NAME = "documents.txt";
 
+    /**
+     * Main entry point of the program.
+     * Displays the menu and handles user choices until they choose to exit.
+     */
     public static void main(String[] args) {
         int choice;
         do {
@@ -38,6 +45,10 @@ public class Main {
         } while (choice != 0);
     }
 
+    /**
+     * Prompts the user for document details and adds a new Document object
+     * to the documents list.
+     */
     static void addDocument() {
         System.out.print("Enter ID: ");
         int id = scanner.nextInt();
@@ -58,6 +69,12 @@ public class Main {
         System.out.println("Document added successfully.");
     }
 
+    /**
+     * Displays documents based on the user's filter choice:
+     * 1. All documents
+     * 2. Filter by office
+     * 3. Filter by creation date
+     */
     static void viewDocuments() {
         if (documents.isEmpty()) {
             System.out.println("No documents to display.");
@@ -106,6 +123,11 @@ public class Main {
         }
     }
 
+    /**
+     * Saves all documents from the list into a text file.
+     * Each record is stored as a comma-separated line.
+     * @param filename The name of the file to save data into.
+     */
     static void saveAll(String filename) {
         try (FileWriter writer = new FileWriter(filename)) {
             for (Document doc : documents) {
@@ -122,6 +144,11 @@ public class Main {
         }
     }
 
+    /**
+     * Loads documents from a text file into the documents list.
+     * Clears existing records before loading.
+     * @param filename The name of the file to read data from.
+     */
     static void loadFromFile(String filename) {
         File file = new File(filename);
         if (!file.exists()) {
@@ -145,6 +172,10 @@ public class Main {
         }
     }
 
+    /**
+     * Allows the user to update the details of an existing document
+     * by specifying its ID.
+     */
     static void editDocument() {
         System.out.print("Enter ID of the document to edit: ");
         int id = scanner.nextInt();
@@ -168,6 +199,9 @@ public class Main {
         System.out.println("Document not found.");
     }
 
+    /**
+     * Deletes a document from the list based on the provided ID.
+     */
     static void deleteDocument() {
         System.out.print("Enter ID of the document to delete: ");
         int id = scanner.nextInt();
@@ -182,6 +216,10 @@ public class Main {
         System.out.println("Document not found.");
     }
 
+    /**
+     * Tests if an image file exists at a given path and displays it in a window
+     * using a simple Swing-based viewer.
+     */
     static void testImagePath() {
         System.out.print("Enter image path to test: ");
         String path = scanner.nextLine();
